@@ -20,26 +20,37 @@
 
     <!-- Navigation Bar -->
     <div class="banner">
-        <div class="leftAlign"></div>
-        <div class="rightAlign">
-            <!-- Home Button -->
+        <% if (user !== ' ') { %>
+          <!-- Alignment div for spacing -->
+          <div class="leftAlign"></div>
+          <!-- Navigation links and logout button for logged-in users -->
+          <div class="rightAlign">
             <form action="./">
-                <button id="home" class="btnbtn">Home</button>
+              <button id="home" class="btnbtn">Home</button>
+            </form>
+            <form action="/logout" method="GET">
+              <input type="submit" name="logout" id="logout" value="Logout" class="btn">
+            </form>
+          </div>
+        <% } else { %>
+          <!-- Alignment div for spacing -->
+          <div class="leftAlign"></div>
+          <!-- Navigation links and login/register buttons for non-logged-in users -->
+          <div class="rightAlign">
+            <form action="./">
+              <button id="home" class="btnbtn">Home</button>
             </form>
             <br>
-
-            <!-- Login Button -->
             <form action="/login">
-                <input type="submit" name="login" id="login" value="Login" class="btn">
+              <input type="submit" name="login" id="login" value="Login" class="btn">
             </form>
             <br>
-
-            <!-- Register Button -->
             <form action="/register">
-                <input type="submit" name="register" id="register" value="Register" class="btn">
+              <input type="submit" name="register" id="register" value="Register" class="btn">
             </form>
-        </div>
-    </div>
+          </div>
+        <% } %>
+      </div>
 
     <!-- Weather Information Section -->
     <div>
