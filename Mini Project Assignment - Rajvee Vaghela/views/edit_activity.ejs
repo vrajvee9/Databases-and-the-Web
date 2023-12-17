@@ -1,0 +1,87 @@
+<!-- edit_activity.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Activity</title>
+
+  <!-- External CSS Link -->
+  <link rel="stylesheet" href="/styles/edit_activity_styles.css"> <!-- Link to your external CSS file -->
+
+  <!-- Internal Styles -->
+  <style>
+    body {
+      font-family: 'Spline Sans Mono', monospace;
+      color: #333;
+      padding: 20px;
+      /* Additional styling for body */
+    }
+
+    h1 {
+      font-weight: bolder;
+      font-size: 50px;
+      margin-bottom: 40px;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    input,
+    form {
+      font-family: 'Spline Sans Mono', monospace;
+      font-size: 18px;
+      margin: 10px;
+      /* Additional styling for input and form elements */
+    }
+
+    .button {
+      padding: 7px 15px;
+      border: 3px black solid;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Page Header -->
+  <header>
+    <h1>Edit Log Entry</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Form for Editing Activity Log Entry -->
+    <form action="/save_edit_activity" method="post">
+      <!-- Hidden input for log ID -->
+      <input type="hidden" name="log_id" value="<%= logToEdit.log_id %>">
+
+      <!-- Exercise Name Input -->
+      <label for="exercise_name">Exercise Name:</label>
+      <input type="text" name="exercise_name" id="exercise_name" value="<%= logToEdit.exercise_name %>">
+      <br>
+
+      <!-- Log Date Input -->
+      <label for="log_date">Log Date:</label>
+      <input type="text" name="log_date" id="log_date" value="<%= logToEdit.log_date %>">
+      <br>
+
+      <!-- Duration Input -->
+      <label for="duration">Duration:</label>
+      <input type="text" name="duration" id="duration" value="<%= logToEdit.duration %>">
+      <br><br>
+
+      <!-- Save Changes Button -->
+      <input type="submit" value="Save Changes" class="button">
+    </form>
+
+    <!-- Form for Navigating Back to Activity Logs -->
+    <form action="/activity_saved">
+      <input type="submit" name="back" value="Back" class="button">
+    </form>
+  </main>
+</body>
+
+</html>

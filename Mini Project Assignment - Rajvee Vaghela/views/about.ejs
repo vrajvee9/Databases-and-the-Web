@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Set character set for proper rendering -->
+  <meta charset="UTF-8">
+  <!-- Title dynamically set based on the forumName variable -->
+  <title><%=forumName%></title>
+  <!-- Google Font Link for Arima and Spline Sans Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- External stylesheet for styling -->
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+  <!-- Main content begins here -->
+
+  <!-- Forum name displayed as the main heading -->
+  <div>
+    <h1><%=forumName%></h1>
+  </div>
+
+  <!-- Banner section with navigation links and user-specific options -->
+  <div class="banner">
+    <% if (user !== ' ') { %>
+      <!-- Alignment div for spacing -->
+      <div class="leftAlign"></div>
+      <!-- Navigation links and logout button for logged-in users -->
+      <div class="rightAlign">
+        <form action="./">
+          <button id="home" class="btnbtn">Home</button>
+        </form>
+        <form action="/logout" method="GET">
+          <input type="submit" name="logout" id="logout" value="Logout" class="btn">
+        </form>
+      </div>
+    <% } else { %>
+      <!-- Alignment div for spacing -->
+      <div class="leftAlign"></div>
+      <!-- Navigation links and login/register buttons for non-logged-in users -->
+      <div class="rightAlign">
+        <form action="./">
+          <button id="home" class="btnbtn">Home</button>
+        </form>
+        <br>
+        <form action="/login">
+          <input type="submit" name="login" id="login" value="Login" class="btn">
+        </form>
+        <br>
+        <form action="/register">
+          <input type="submit" name="register" id="register" value="Register" class="btn">
+        </form>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- About section with a brief description of the application -->
+  <h2>About</h2>
+  <div class="textBlock">
+    <p>Using this app, the user can: </p>
+    <!-- List of features provided by the application -->
+    <ul>
+      <li>> monitor daily exercise routine</li>
+      <li>> record data to document changes in the body</li>
+      <li>> browse a list of exercises to do</li>
+      <li>> check weather forecasts to determine whether to exercise indoors or outdoors for the day</li>
+    </ul>
+  </div>
+
+  <!-- Main content ends here -->
+</body>
+
+</html>

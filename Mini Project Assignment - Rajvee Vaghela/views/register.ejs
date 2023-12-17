@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Register</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <!-- JavaScript Section -->
+  <script>
+    // Function to toggle password visibility
+    function togglePswd() {
+      var pswd = document.getElementById("password");
+      if (pswd.type === "password") {
+        pswd.type = "text";
+      } else {
+        pswd.type = "password";
+      }
+    }
+
+    // Function to validate email format
+    function validateEmail() {
+      var email = document.getElementById("email");
+      var emailError = document.getElementById("email-error");
+
+      if (!email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+        emailError.innerHTML = "Enter a valid email";
+        return false;
+      }
+
+      emailError.innerHTML = "";
+      return true;
+    }
+
+    // Function to validate password format
+    function validatePassword() {
+      var password = document.getElementById("password");
+      var passwordError = document.getElementById("password-error");
+
+      if (!password.value.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
+        passwordError.innerHTML = "--- Invalid password ---";
+        return false;
+      }
+
+      passwordError.innerHTML = "";
+      return true;
+    }
+  </script>
+</head>
+
+<!-- User Registration Page -->
+
+<body>
+  <!-- Page Header -->
+  <h1>Register to <%=forumName%></h1>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <div class="leftAlign"></div>
+    <div class="rightAlign">
+      <!-- Home Button -->
+      <form action="./">
+        <button class="btnbtn">HOME</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Registration Form -->
+  <form action="/registered" method="POST" id="registration-form">
+    <!-- Username Input -->
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" minlength="4" required>
+    <label for="username" class="highlightText">>> minimum 4 characters</label>
+    <br><br>
+
+    <!-- Firstname Input -->
+    <label for="firstname">Firstname: </label>
+    <input type="text" name="firstname" id="firstname" required>
+    <br><br>
+
+    <!-- Lastname Input -->
+    <label for="lastname">Lastname: </label>
+    <input type="text" name="lastname" id="lastname" required>
+    <br><br>
+
+    <!-- Email Input -->
+    <label for="email" id="email-label">E-mail: </label>
+    <input type="text" name="email" id="email" onkeyup="validateEmail()" required>
+    <span id="email-error" class="highlightText"></span>
+    <br><br>
+
+    <!-- Gender Input -->
+    <div>
+      <label for="gender">Gender: </label>
+      <input type="radio" name="gender" id="male" value="male" required>
+      <label for="male">Male</label>
+
+      <input type="radio" name="gender" id="female" value="female" required>
+      <label for="female">Female</label>
+
+      <input type="radio" name="gender" id="other" value="other" required>
+      <label for="other">Other</label>
+    </div>
+    <br>
+
+    <!-- Age Input -->
+    <label for="age">Age: </label>
+    <input type="number" name="age" id="age" required max="100" min="18">
+    <br><br>
+
+    <!-- Password Input -->
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" maxlength="8" onkeyup="validatePassword()" required>
+    <input type="checkbox" name="checkbox" id="checkbox" onclick="togglePswd()">
+    <label for="checkbox">Show password</label>
+    <br><br>
+
+    <!-- Password Validation Messages -->
+    <label for="password" class="highlightText" id="error1">>>> Password must contain one number [0-9]</label>
+    <br>
+    <label for="password" class="highlightText" id="error2">>>> Password must contain one symbol</label>
+    <br>
+    <label for="password" class="highlightText" id="error3">>>> Password must contain one capital letter [A-Z]</label>
+    <br><br>
+
+    <!-- Password Error Message -->
+    <label id="password-error" class="highlightText"></label>
+    <br><br>
+
+    <!-- Submit Button -->
+    <input type="submit" name="submit" id="submit" class="btn">
+  </form>
+  <br>
+
+  <!-- Login Form Link -->
+  <form action="/login">
+    <input type="submit" value="Login" class="btn margBtn">
+  </form>
+
+  <!-- Form Submission Validation -->
+  <script>
+    var registrationForm = document.getElementById("registration-form");
+
+    registrationForm.addEventListener("submit", function (event) {
+      if (!validateEmail() || !validatePassword()) {
+        // Prevent form submission if validation fails
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+
+</html>

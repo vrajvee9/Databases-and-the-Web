@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Login</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<!-- Login Page for User Authentication -->
+
+<body>
+  <!-- Page Header -->
+  <h1><%=forumName%></h1>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <div class="leftAlign"></div>
+    <div class="rightAlign">
+      <!-- Home Button -->
+      <form action="./">
+        <button class="btnbtn">Home</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Form Section -->
+  <h2>Login</h2>
+
+  <!-- Login Form -->
+  <form action="/welcome" method="POST">
+    <!-- Username Input -->
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required>
+    <br><br>
+
+    <!-- Password Input -->
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" maxlength="8" required>
+    <!-- Checkbox to Toggle Password Visibility -->
+    <input type="checkbox" name="checkbox" id="checkbox" onclick="togglePswd()">
+    <label for="checkbox">Show password</label>
+    <br><br>
+
+    <!-- Submit Button -->
+    <input type="submit" name="submit" id="submit" class="btn">
+  </form>
+
+  <!-- Registration Form Link -->
+  <form action="/register">
+    <input type="submit" value="Register" class="btn" style="margin-top: 20px;">
+  </form>
+
+  <!-- JavaScript to Toggle Password Visibility -->
+  <script>
+    function togglePswd() {
+      var pswd = document.getElementById("password");
+      if (pswd.type === "password") {
+        pswd.type = "text";
+      } else {
+        pswd.type = "password";
+      }
+    }
+  </script>
+</body>
+
+</html>

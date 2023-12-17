@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Login</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<!-- Login Page for User Authentication -->
+
+<body>
+  <!-- Page Header -->
+  <h1><%=forumName%></h1>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <!-- Conditional Display of Navigation Items based on User Login Status -->
+    <% if (user !== ' ') { %>
+      <div class="leftAlign"></div>
+      <div class="rightAlign">
+        <!-- Home and Logout buttons for logged-in users -->
+        <form action="./">
+          <button id="home" class="btnbtn">Home</button>
+        </form>
+        <form action="/logout" method="GET">
+          <input type="submit" name="logout" id="logout" value="Logout" class="btn">
+        </form>
+      </div>
+    <% } else { %>
+      <div class="leftAlign"></div>
+      <div class="rightAlign">
+        <!-- Home, Login, and Register buttons for non-logged-in users -->
+        <form action="./">
+          <button id="home" class="btnbtn">Home</button>
+        </form>
+        <form action="/login">
+          <input type="submit" name="login" id="login" value="Login" class="btn">
+        </form>
+        <br>
+        <form action="/register">
+          <input type="submit" name="register" id="register" value="Register" class="btn">
+        </form>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Record Activity Section -->
+  <h2>Record Activity</h2>
+
+  <!-- Activity Logging Form -->
+  <form action="/activity_logged" method="POST">
+    <!-- Username Input -->
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="log_date" required>
+    <br><br>
+
+    <!-- Exercise Name Input -->
+    <label for="exercise_name">Type of Exercise:</label>
+    <input type="text" name="exercise_name" id="exercise_name" required>
+    <br><br>
+
+    <!-- Log Date Input -->
+    <label for="log_date">Log Date:</label>
+    <input type="date" name="log_date" id="log_date" required>
+    <br><br>
+
+    <!-- Duration Input -->
+    <label for="duration">Duration (in minutes):</label>
+    <input type="number" name="duration" id="duration" required>
+    <br><br><br>
+
+    <!-- Submit Button (conditional based on user login status) -->
+    <% if (user != ' ') { %>
+      <input type="submit" name="submit" id="submit" value="Log Exercise" class="btn">
+    <% } else { %>
+      <!-- Display a message if user is not logged in -->
+      <p class="highlightText">User login is mandatory to record an activity.</p>
+    <% } %>
+  </form>
+</body>
+
+</html>

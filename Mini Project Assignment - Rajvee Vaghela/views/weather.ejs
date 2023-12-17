@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= forumName %></title>
+    <!-- GOOGLE FONT LINK:  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<!-- this is the landing page of the forum -->
+
+<body>
+    <!-- Header Section -->
+    <div>
+        <h1><%= forumName %></h1>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="banner">
+        <div class="leftAlign"></div>
+        <div class="rightAlign">
+            <!-- Home Button -->
+            <form action="./">
+                <button id="home" class="btnbtn">Home</button>
+            </form>
+            <br>
+
+            <!-- Login Button -->
+            <form action="/login">
+                <input type="submit" name="login" id="login" value="Login" class="btn">
+            </form>
+            <br>
+
+            <!-- Register Button -->
+            <form action="/register">
+                <input type="submit" name="register" id="register" value="Register" class="btn">
+            </form>
+        </div>
+    </div>
+
+    <!-- Weather Information Section -->
+    <div>
+        <h2>Weather Information</h2>
+
+        <!-- Weather Table -->
+        <table>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Current Temperature</td>
+                <td><%= weatherInfo.temperature %>°C</td>
+            </tr>
+            <tr>
+                <td>Conditions</td>
+                <td><%= weatherInfo.conditions %></td>
+            </tr>
+            <tr>
+                <td>Wind Speed</td>
+                <td><%= weatherInfo.windSpeed %> m/s</td>
+            </tr>
+            <tr>
+                <td>Precipitation</td>
+                <td><%= weatherInfo.precipitation %></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><%= weatherInfo.time %></td>
+            </tr>
+        </table>
+        <br>
+
+        <!-- Recommendation Section -->
+        <h2 class="center"><%= recommendation %></h2>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Search</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<!-- Search Page -->
+
+<body>
+  <!-- Page Header -->
+  <h1><%=forumName%></h1>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <!-- Left-aligned space in the banner -->
+    <div class="leftAlign"></div>
+
+    <!-- Right-aligned content in the banner -->
+    <div class="rightAlign">
+      <!-- Home Button -->
+      <form action="/">
+        <input type="submit" name="home" id="home" value="Home" class="btn">
+      </form>
+
+      <!-- Conditional display based on user login status -->
+      <% if (user != ' ') { %>
+        <!-- Logout Button for logged-in users -->
+        <form action="/logout" method="GET">
+          <input type="submit" name="logout" id="logout" value="Logout" class="btn">
+        </form>
+      <% } else { %>
+        <!-- Login and Register Buttons for non-logged-in users -->
+        <form action="/login">
+          <input type="submit" name="login" id="login" value="Login" class="btn">
+        </form>
+        <br>
+        <form action="/register">
+          <input type="submit" name="register" id="register" value="Register" class="btn">
+        </form>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Search Form Section -->
+  <h2>Search exercises</h2>
+  <form action="/search-result" method="GET" class="center">
+    <!-- Search Input and Submit Button -->
+    <p>What exercise are you interested in?</p>
+    <input id="search-box" type="text" name="keyword" value="">
+    <input type="submit" value="Search" class="btn">
+  </form>
+</body>
+
+</html>

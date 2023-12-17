@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%= forumName %> - Login</title>
+  <!-- GOOGLE FONT LINK: -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <!-- Page Header -->
+  <h1><%= forumName %></h1>
+  <h2>Exercise Log</h2>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <!-- Conditional Display of Navigation Items based on User Login Status -->
+    <% if (user !== ' ') { %>
+      <div class="leftAlign"></div>
+      <div class="rightAlign">
+        <!-- Home and Logout buttons for logged-in users -->
+        <form action="./"><button id="home" class="btn btnbtn">Home</button></form>
+        <form action="/logout" method="GET"><input type="submit" name="logout" id="logout" value="Logout" class="btn"></form>
+      </div>
+    <% } else { %>
+      <div class="leftAlign"></div>
+      <div class="rightAlign">
+        <!-- Home, Login, and Register buttons for non-logged-in users -->
+        <form action="./"><button id="home" class="btn btnbtn">Home</button></form>
+        <form action="/login"><input type="submit" name="login" id="login" value="Login" class="btn"></form>
+        <br>
+        <form action="/register"><input type="submit" name="register" id="register" value="Register" class="btn"></form>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Display a message if the user is not logged in -->
+  <% if (user == ' ') { %>
+    <p class="center highlightText">A user must log in to view the exercise logs.</p>
+  <% } else { %>
+    <!-- Display the Exercise Log Table if entries exist -->
+    <% if (ex_log.length > 0) { %>
+      <table id="saved_exercise_table">
+        <caption>Exercise Log Entries</caption>
+        <thead>
+          <!-- Table Header Row -->
+          <tr>
+            <th>Username</th>
+            <th>Log Number</th>
+            <th>Exercise Name</th>
+            <th>Log Date</th>
+            <th>Duration</th>
+            <th>Edit Log</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through exercise log entries and populate the table -->
+          <% ex_log.forEach(function(entry) { %>
+            <tr>
+              <td><%= entry.username %></td>
+              <td><%= entry.log_id %></td>
+              <td><%= entry.exercise_name %></td>
+              <td><%= entry.log_date %></td>
+              <td><%= entry.duration %></td>
+              <td>
+                <!-- Form for editing the activity log entry -->
+                <form action="/edit_activity/<%= entry.log_id %>" method="get">
+                  <input type="submit" value="Edit" class="editBtn">
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <!-- Display a message if no entries are found -->
+      <h2 class="center">No entries found.</h2>
+    <% } %>
+  <% } %>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+body {
+  font-family: 'Spline Sans Mono', monospace;
+  padding: 1% ;
+}
+
+h1 {
+  font-family: 'Arima', cursive;
+  font-weight: bolder;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: 'Arima', cursive;
+  font-size: 30px;
+  margin-top: 0;
+}
+
+label {
+  font-size: 19px;
+}
+
+p {
+  font-size: 17px;
+  margin-top: 0;
+}
+
+.textBlock {
+  margin-top: 60px;
+}
+
+/* for the list on the index page: */
+ul li {
+  list-style: none;
+  margin-bottom: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ul li a:hover {
+  color: hotpink;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* styling for tables on any page containing a table: */
+table {
+  border-collapse: collapse;
+  margin: auto;
+  table-layout: fixed;
+  border: 0.5px solid lightgrey;
+}
+
+table tr:hover {
+  font-weight: bold;
+  background-color: #f3f3f3;
+}
+
+table tr {
+  border-bottom: 0.5px solid lightgrey;
+}
+
+table th, table td {
+  padding: 10px;
+  border-right: 0.5px solid lightgrey;
+}
+
+table th {
+  padding: 20px 20px 20px 10px;
+  text-align: left;
+}
+
+td.num_id {
+  padding-right: 30px;
+}
+
+td.country {
+  padding-right: 200px;
+}
+
+table#user_table {
+  margin-bottom: 60px;
+}
+
+/* styling for the 'More' button in the tables and the add post button on the add post page */
+input.btn, button.btnbtn {
+  font-family: 'Spline Sans Mono', monospace;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #000;
+  border: 2.5px solid black;
+  margin-right: 10px;
+}
+
+input.btn:hover, button.btnbtn:hover, .homeBtn button:hover {
+  background-color: hotpink;
+}
+
+input.editBtn {
+  font-family: 'Spline Sans Mono', monospace;
+  background-color: rgba(8, 8, 8, 0.08);
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 14px 32px;
+  text-align: center;
+  cursor: pointer;
+  text-align: center;
+  /* margin: 0 20px; */
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftAlign {
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightAlign {
+  display: flex;
+  right: 0;
+}
+
+.rightAlign input {
+  margin-right: 10px;
+}
+
+/* Add the following if you want to ensure the contents don't wrap to the next line */
+.leftAlign, .rightAlign {
+  white-space: nowrap;
+}
+
+div.banner {
+  display: flex;
+  margin: 0 60px 20px 20px;
+}
+
+.user {
+  border: 5px black solid;
+  padding: 0px 10px;
+  background-color: orange;
+}
+
+.center {
+  text-align: center;
+}
+
+.highlightText {
+  color:hotpink;
+  font-weight: bold;
+  padding-top: 10px;
+}
+

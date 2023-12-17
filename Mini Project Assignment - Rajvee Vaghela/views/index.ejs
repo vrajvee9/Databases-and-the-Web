@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page Title -->
+  <title><%= forumName %></title>
+
+  <!-- GOOGLE FONT LINK:  -->
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Link to Google Fonts stylesheet -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+  <!-- Page Header -->
+  <div>
+    <h1><%= forumName %></h1>
+  </div>
+  <br><br>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <div class="leftAlign">
+      <!-- Activity-related buttons -->
+      <form action="/log_activity"><input type="submit" value="Record Activity" class="btn"></form>
+      <form action="/activity_saved"><input type="submit" value="Activity Logs" class="btn"></form>
+      <form action="/search"><input type="submit" value="Search Activity" class="btn"></form>
+      <form action="/exercises"><input type="submit" name="exercises" id="exercises" value="Exercise List" class="btn"></form>
+      <!-- Other buttons -->
+      <form action="/about"><input type="submit" name="about" id="login" value="About" class="btn"></form>
+      <form action="/weather"><input type="submit" name="about" id="login" value="Weather" class="btn"></form>
+    </div>
+
+    <!-- User-specific buttons -->
+    <div class="rightAlign">
+      <!-- Displayed if the user is logged in -->
+      <% if (user != ' ') { %>
+      <form action="./"><button id="home" class="btnbtn">Home</button></form>
+      <form action="/logout" method="GET"><input type="submit" name="logout" id="logout" value="Logout" class="btn"></form>
+      <% } else { %>
+      <!-- Displayed if the user is not logged in -->
+      <form action="/login"><input type="submit" name="login" id="login" value="Login" class="btn"></form>
+      <br>
+      <form action="/register"><input type="submit" name="register" id="register" value="Register" class="btn"></form>
+      <% } %>
+    </div>
+  </div>
+  <br>
+
+  <!-- Page Content -->
+  <div>
+    <h2>A health and fitness tracker</h2>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= forumName %> - Welcome</title>
+  <!-- GOOGLE FONT LINK: -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<!-- This page is rendered once a user is able to successfully log into the forum -->
+<body>
+  <!-- Forum Name and Navigation Bar -->
+  <h1><%= forumName %></h1>
+  <div class="banner">
+    <div class="leftAlign"></div>
+    <div class="rightAlign">
+      <!-- Home Button -->
+      <form action="./">
+        <button id="home" class="btnbtn">Home</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Welcome Message and User Information -->
+  <h2>Welcome to Worth the Weight, a health and fitness tracker</h2>
+  <h2>USER: <%= user[0].username %></h2>
+</body>
+
+</html>

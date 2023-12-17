@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Search results</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<!-- Search Results Page -->
+
+<body>
+  <!-- Page Header -->
+  <h1><%=forumName%></h1>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <!-- Left-aligned space in the banner -->
+    <div class="leftAlign"></div>
+
+    <!-- Right-aligned content in the banner -->
+    <div class="rightAlign">
+      <!-- Home Button -->
+      <form action="/">
+        <input type="submit" name="home" id="home" value="Home" class="btn">
+      </form>
+
+      <!-- Conditional display based on user login status -->
+      <% if (user != ' ') { %>
+        <!-- Logout Button for logged-in users -->
+        <form action="/logout" method="GET">
+          <input type="submit" name="logout" id="logout" value="Logout" class="btn">
+        </form>
+      <% } else { %>
+        <!-- Search, Login, and Register Buttons for non-logged-in users -->
+        <form action="/search">
+          <input type="submit" name="search" id="search" value="Search" class="btn">
+        </form>
+        <form action="/login">
+          <input type="submit" name="login" id="login" value="Login" class="btn">
+        </form>
+        <br>
+        <form action="/register">
+          <input type="submit" name="register" id="register" value="Register" class="btn">
+        </form>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Search Result Section -->
+  <h2>Search result </h2>
+  
+  <!-- Display search results in a table -->
+  <% if (exercises && exercises.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise ID</th>
+          <th>Exercise Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Difficulty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over search results and display in the table -->
+        <% exercises.forEach(function(exercise) { %>
+          <tr>
+            <td><%= exercise.exercise_id %></td>
+            <td><%= exercise.ex_name %></td>
+            <td><%= exercise.description %></td>
+            <td><%= exercise.category %></td>
+            <td><%= exercise.difficulty %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <!-- Display message if no results found -->
+    <p class="center">No results found.</p>
+  <% } %>
+</body>
+
+</html>

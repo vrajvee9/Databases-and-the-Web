@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Metadata -->
+  <title><%=forumName%> - Registered</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<!-- Registration Success Page -->
+
+<body>
+  <!-- Page Header -->
+  <h1><%= forumName %></h1>
+
+  <!-- Success Message -->
+  <h2>You have successfully registered. Welcome.</h2>
+
+  <!-- Navigation Bar -->
+  <div class="banner">
+    <!-- Left-aligned space in the banner -->
+    <div class="leftAlign"></div>
+
+    <!-- Right-aligned content in the banner -->
+    <div class="rightAlign">
+      <!-- Login Form -->
+      <form action="/login">
+        <!-- Login Button -->
+        <input type="submit" name="login" id="login" value="Login" class="btn">
+      </form>
+
+      <!-- Home Button -->
+      <form action="./">
+        <button class="btnbtn">Home</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
